@@ -6,20 +6,19 @@ from pathlib import Path
 root_path = Path(__file__).parent
 
 install_requires = [
-    'nml==0.7.4',
-    'numpy==1.25.0',
-    'Pillow==9.4.0',
+    'nml>=0.7.4',
+    'numpy>=2.0.0',
+    'Pillow>=9.4.0',
     'ply==3.11',
-    'typeguard==4.1.5',
+    'typeguard>=4.1.5',
 ]
 
 setup(
     name='grf',
-    setuptools_git_versioning={
-        "enabled": True,
-        "version_file": root_path / "VERSION",
-    },
+    version=open(root_path / "VERSION").read().strip(),
     description='Framework for making OpenTTD NewGRF files',
+    long_description=open('README.md').read(),
+    long_description_content_type='text/markdown',
     author='dP',
     packages=find_packages(include=['grf', 'grf.*']),
     entry_points={
